@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+    <title>Verity - Inside</title>
+    <link rel="icon" type="image/x-icon" href="./resources/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="resources/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/b1c55f31a2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div id="header-wrap">
+            <img src="./resources/images/icon_raid.svg">
+            <h1>Verity - Inside Simulator</h1>
+            <div id="me-button-wrap">
+                <a href="https://linktr.ee/carlosf93" target="_blank">
+                    <div id="me-button">
+                        <img src="./resources/images/icon_bungie.svg"/>
+                        <span>Carlosf93</span>
+                        <span id="bng-numbers">#9188</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="full-message-wrap" id="message-failure">
+            <div class="message-container">
+                <div class="message-wrap" id="failure-wrap">
+                    <div class="message-icon-wrap">
+                        <img class="message-icon" src="./resources/images/icon_fail.svg"/>
+                    </div>
+                    <div class="message-content">
+                        <h1 id="failure-header">Failed</h1>
+                        <span id="failure-reason">
+                        </span>
+                    </div>
+                </div>
+                <div class="message-button-wrap" id="try-again-fail">
+                    <div class="message-button">
+                        <span class="message-button-text">Try Again</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="full-message-wrap" id="message-success">
+            <div class="message-container">
+                <div class="message-wrap" id="success-wrap">
+                    <div class="message-icon-wrap">
+                        <img class="message-icon" src="./resources/images/icon_success.svg"/>
+                    </div>
+                    <div class="message-content">
+                        <h1 id="success-header">Success</h1>
+                        <span>
+                            You got out of the inside room succesfully!
+                        </span>
+                    </div>
+                </div>
+                <div class="message-button-wrap" id="try-again-success">
+                    <div class="message-button">
+                        <span class="message-button-text">Try Again</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="left-layout">
+            <div class="layout-room">
+                <div id="wall-symbol"></div>
+                <img class="enemy" id="knight-left" src="./resources/images/image_hive_knight.png"/>
+                <img class="enemy" id="knight-right" src="./resources/images/image_hive_knight.png"/>
+                <img class="enemy" id="ogre" src="./resources/images/image_hive_ogre.png"/>
+                <img class="symbol" id="symbol-left" src="./resources/images/image_symbol_triangle.png"/>
+                <img class="symbol" id="symbol-right" src="./resources/images/image_symbol_circle.png"/>
+                <div class="statue-container" id="statue-container-1">
+                    <img src="./resources/images/image_pedestal.png"/>
+                    <img class="statue-symbol" id="statue-symbol-1" src="./resources/images/image_statue_triangle.png"/>
+                    <span class="statue-name" id="statue-name-1">CPU</span>
+                </div>
+                <div class="statue-container" id="statue-container-2">
+                    <img src="./resources/images/image_pedestal.png"/>
+                    <img class="statue-symbol" id="statue-symbol-2" src="./resources/images/image_statue_circle.png"/>
+                    <span class="statue-name" id="statue-name-2">CPU</span>
+                </div>
+                <div class="statue-container" id="statue-container-3">
+                    <img src="./resources/images/image_pedestal.png"/>
+                    <img class="statue-symbol" id="statue-symbol-3" src="./resources/images/image_statue_square.png"/>
+                    <span class="statue-name" id="statue-name-3">CPU</span>
+                </div>
+            </div>
+        </div>
+        <div class="right-layout">
+            <div id="rl-buffs">
+                <div class="buff-wrap">
+                    <span class="buff-text" id="imminent-end-time">0:00</span>
+                    <img class ="buff-icon" src="./resources/images/icon_timer.svg"/>
+                    <span class="buff-text">Imminent End</span>
+                </div>
+                <div class="buff-wrap">
+                    <img class="buff-icon" id="buff-shape-icon" src="./resources/images/icon_empty.svg"/>
+                    <span class="buff-text" id="buff-shape-name">---</span>
+                </div>
+            </div>
+            <div class="rl-step-wrap" id="rl-step1">
+                <h1>Step 1: Two of Own</h1>
+                <p>
+                    Give away the shapes that are different from the one your statue is holding to the statues that are actually holding them.
+                    <br><br>
+                    When your wall rotates the symbol your statue is holding twice, communicate to your fireteam that you are ready for Step 2.
+                </p>
+            </div>
+            <div class="rl-step-wrap" id="rl-step2">
+                <h1>Step 2: Distribute</h1>
+                <p>
+                    Give away the shapes your statue is holding to the other two statues (one each).
+                    <br><br>
+                    When your wall shows two different shapes that are not the one your statue is holding, pick them both up and leave.
+                </p>
+            </div>
+            <div id="tc-wrap">
+                <div id="tc-line-top"></div>
+                <div id="tc-chat">
+                    <div class="tc-chat-text" id="tc-chat-5">
+                        <span class="tc-chat-name" id="tc-chat-n-5">Guardian2345:</span>
+                        <span class="tc-chat-message" id="tc-chat-m-5">I'm ready!</span>
+                    </div>
+                    <div class="tc-chat-text" id="tc-chat-4">
+                        <span class="tc-chat-name" id="tc-chat-n-4">Guardian1234:</span>
+                        <span class="tc-chat-message" id="tc-chat-m-4">I'm ready too!</span>
+                    </div>
+                    <div class="tc-chat-text" id="tc-chat-3">
+                        <span class="tc-chat-name" id="tc-chat-n-3">Guardian1234:</span>
+                        <span class="tc-chat-message" id="tc-chat-m-3">I'm ready too!</span>
+                    </div>
+                    <div class="tc-chat-text" id="tc-chat-2">
+                        <span class="tc-chat-name" id="tc-chat-n-2">Guardian1234:</span>
+                        <span class="tc-chat-message" id="tc-chat-m-2">I'm ready too!</span>
+                    </div>
+                    <div class="tc-chat-text" id="tc-chat-1">
+                        <span class="tc-chat-name" id="tc-chat-n-1">Guardian1234:</span>
+                        <span class="tc-chat-message" id="tc-chat-m-1">I'm ready too!</span>
+                    </div>
+                    <div id="tc-scroll"></div>
+                </div>
+                <div id="tc-input">
+                    <div class="tc-chat-text tc-chat-active">
+                        <span class="tc-chat-name">To [Fireteam]:</span>
+                        <span class="tc-chat-input-message">I'm ready!</span>
+                    </div>
+                </div>
+                <div id="tc-line-bot"></div>
+            </div>
+            <div class="go-innactive" id="button-get-out">
+                <div id="button-go-wrap">
+                    <div id="button-go-text">Get Out</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src='./script/script.js'></script>
+</body>
+</html>
